@@ -56,7 +56,7 @@ namespace Movies
         /// <returns>A collection of movies</returns>
         public static IEnumerable<Movie> Search(string terms)
         {
-            // TODO: Search database
+            
             List<Movie> results = new List<Movie>();
             // Return all movies if there are no search terms
             if (terms == null) return All;

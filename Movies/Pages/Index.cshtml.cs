@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
 namespace Movies.Pages
 {
     public class IndexModel : PageModel
@@ -18,19 +19,16 @@ namespace Movies.Pages
         /// <summary>
         /// The current search terms 
         /// </summary>
-        [BindProperty]
         public string SearchTerms { get; set; } = "";
 
         /// <summary>
         /// The filtered MPAA Ratings
-        /// </summary>
-        [BindProperty]
+        /// </summary>       
         public string[] MPAARating { get; set; }
 
         /// <summary>
         /// The filtered genres
         /// </summary>
-        [BindProperty]
         public string[] Genres { get; set; }
 
         /// <summary>
@@ -68,6 +66,9 @@ namespace Movies.Pages
             this.IMDBMax = IMDBMax;
             this.RottenTomatoesMax = RottenTomatoesMax;
             this.RottenTomatoesMin = RottenTomatoesMin;
+            SearchTerms = Request.Query["SearchTerms"];
+            MPAARating = Request.Query["MPAARating"];
+            Genres = Request.Query["Genres"];
             Movies = MovieDatabase.Search(SearchTerms);
             Movies = MovieDatabase.FilterByMPAARating(Movies, MPAARating);
             Movies = MovieDatabase.FilterByGenre(Movies, Genres);
