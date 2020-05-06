@@ -49,6 +49,7 @@ namespace Movies
         /// </summary>
         public static string[] Genres => genres;
 
+        /* These old search and filter functions are obsolete now.
         /// <summary>
         /// Searches the database for matching movies
         /// </summary>
@@ -214,7 +215,7 @@ namespace Movies
             return results;
         }
 
-
+        */
 
 
         /// <summary>
